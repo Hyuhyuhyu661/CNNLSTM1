@@ -7,7 +7,7 @@ from tensorflow.keras.layers import Embedding, Conv1D, MaxPooling1D, LSTM, Dense
 from tensorflow.keras.callbacks import EarlyStopping
 
 # データの読み込みと前処理
-data = pd.read_csv('C:/Users/hyu2_/OneDrive/デスクトップ/cnnlstm/MalbehavD-V1-main/MalBehavD-V1-dataset.csv')
+data = pd.read_csv('../MalbehavD-V1-main/MalBehavD-V1-dataset.csv')
 labels = data.iloc[:, 1].values
 api_calls = data.iloc[:, 2:].astype(str).values
 
