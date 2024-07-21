@@ -1,7 +1,7 @@
 import pandas as pd
 
 # CSVファイルの読み込み
-data = pd.read_csv('C:/Users/hyu2_/OneDrive/デスクトップ/cnnlstm/MalbehavD-V1-main/MalBehavD-V1-dataset.csv')
+data = pd.read_csv('../MalbehavD-V1-main/MalBehavD-V1-dataset.csv')
 
 # API呼出し部分のデータを抽出
 api_calls = data.iloc[:, 2:]
