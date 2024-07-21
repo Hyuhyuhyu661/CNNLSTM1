@@ -9,6 +9,7 @@ from tensorflow.keras.layers import Dropout
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping
 import matplotlib.pyplot as plt
+from sklearn.metrics import classification_report, accuracy_score, precision_score, recall_score, f1_score
 
 # データの読み込み
 data = pd.read_csv('../MalbehavD-V1-main/MalBehavD-V1-dataset.csv')
@@ -58,6 +59,16 @@ loss, accuracy = model.evaluate(X_test, y_test)
 print(f'Test Loss: {loss}')
 print(f'Test Accuracy: {accuracy}')
 
+# 予測値を取得
+y_pred = model.predict(X_test)
+y_pred_classes = y_pred.argmax(axis=1)
+y_true = y_test.argmax(axis=1)
+
+# 精度、再現率、F1スコアを計算
+precision = precision_score(y_true, y_pred_classes)
+recall = recall_score(y_true, y_pred_classes)
+f1 = f1_score(y_true, y_pred_classes)
+
 # 学習曲線の可視化
 plt.figure(figsize=(12, 5))
 plt.subplot(1, 2, 1)
@@ -80,7 +91,11 @@ plt.show()
 # スコアを表形式で表示
 import pandas as pd
 df_scores = pd.DataFrame({
-    "Metric": ["Loss", "Accuracy"],
-    "Test Score": [loss, accuracy]
+    "Metric": ["Loss", "Accuracy", "Precision", "Recall", "F1 Score"],
+    "Test Score": [loss, accuracy, precision, recall, f1]
 })
 print(df_scores)
+
+# 分類レポートを表示
+print("\nClassification Report:\n")
+print(classification_report(y_true, y_pred_classes))
