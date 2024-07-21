@@ -11,7 +11,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 import matplotlib.pyplot as plt
 
 # データの読み込み
-data = pd.read_csv('C:/Users/hyu2_/OneDrive/デスクトップ/cnnlstm/MalbehavD-V1-main/MalBehavD-V1-dataset.csv')
+data = pd.read_csv('../MalbehavD-V1-main/MalBehavD-V1-dataset.csv')
 
 # ラベルとAPI呼出しの抽出
 labels = data.iloc[:, 1].values
