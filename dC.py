@@ -1,7 +1,7 @@
 import pandas as pd
 
 # データの読み込み
-data = pd.read_csv('C:/Users/hyu2_/OneDrive/デスクトップ/cnnlstm/MalbehavD-V1-main/MalBehavD-V1-dataset.csv')
+data = pd.read_csv('../MalbehavD-V1-main/MalBehavD-V1-dataset.csv')
 
 # 全サンプル数の表示
 n_samples = data.shape[0]
